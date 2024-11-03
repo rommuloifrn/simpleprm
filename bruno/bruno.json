@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "simpleprm",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}
