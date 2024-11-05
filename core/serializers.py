@@ -8,6 +8,11 @@ class ContactSerializer(serializers.HyperlinkedModelSerializer):
         model = models.Contact
         fields = '__all__'
 
+class RelationshipSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = models.Relationship
+        fields = '__all__'
+
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User

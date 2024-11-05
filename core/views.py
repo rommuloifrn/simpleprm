@@ -1,7 +1,7 @@
 from django.contrib.auth.models import Group, User
 from rest_framework import permissions, viewsets
 
-from core.serializers import GroupSerializer, UserSerializer, ContactSerializer
+from core.serializers import GroupSerializer, UserSerializer, ContactSerializer, RelationshipSerializer
 
 from core.models import Contact
 from core import models
@@ -10,6 +10,11 @@ from core import models
 class ContactViewSet(viewsets.ModelViewSet):
     queryset = models.Contact.objects.all()
     serializer_class = ContactSerializer
+    permission_classes = [permissions.AllowAny]
+
+class RelationshipViewSet(viewsets.ModelViewSet):
+    queryset = models.Relationship.objects.all()
+    serializer_class = RelationshipSerializer
     permission_classes = [permissions.AllowAny]
 
 class UserViewSet(viewsets.ModelViewSet):

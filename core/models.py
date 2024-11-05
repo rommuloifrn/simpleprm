@@ -8,7 +8,7 @@ class Contact(models.Model):
     description = models.CharField(max_length=300, null=True)
     birthday = models.DateTimeField(auto_now_add=False, null=True)
     phone_number = models.CharField(max_length=15, null=True)
-    #relationship = models.ForeignKey("RelationshipType", null=True, verbose_name="Relationship Types", on_delete=models.SET_NULL)
+    relationship = models.ForeignKey("Relationship", null=True, verbose_name="Relationship Types", on_delete=models.SET_NULL)
     
     last_time_updated = models.DateTimeField(auto_now=True, auto_now_add=False)
     added = models.DateTimeField(auto_now=False, auto_now_add=True)
@@ -16,8 +16,8 @@ class Contact(models.Model):
     def __str__(self):
         return self.name
     
-class RelationshipType(models.Model):
+class Relationship(models.Model):
     name = models.CharField(max_length=50)
     
-    class Meta:
-        app_label = 'core.relationship_type'
+    def __str__(self):
+        return self.name
